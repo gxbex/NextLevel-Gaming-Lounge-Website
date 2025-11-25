@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextLevel Gaming Lounge - Downtown Toronto</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-dark': '#0F172A', // Slate 900 (Main Background)
+                        'nl-accent': '#10B981', // Emerald 500 (Neon Green)
+                        'nl-secondary': '#047857', // Emerald 700
+                        'nl-text': '#F1F5F9', // Slate 100
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for smooth scrolling and hover effects */
+        html { scroll-behavior: smooth; }
+        .nl-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        /* Increased shadow for a more dramatic hover effect */
+        .nl-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+        }
+        /* Style for mobile nav menu toggle (hidden by default) */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background-color: '#0F172A'; /* nl-dark */
+                border-top: 1px solid #047857; /* nl-secondary */
+                padding: 1rem 0;
+            }
+            .mobile-menu a, .mobile-menu button {
+                padding: 0.75rem 1rem;
+                text-align: center;
+            }
+            .navbar {
+                display: none; /* Hide desktop nav on mobile */
+            }
+        }
+    </style>
+    <!-- Load Lucide Icons for high-quality visuals -->
+    <script type="module" src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-nl-dark text-nl-text font-sans antialiased">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-nl-dark bg-opacity-95 shadow-xl border-b-2 border-nl-accent/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Branding -->
+                <a href="#home" class="flex items-center space-x-2">
+                    <!-- Lucide Gamepad Icon (gamepad-2 is common) -->
+                    <i data-lucide="gamepad-2" class="w-7 h-7 text-nl-accent animate-pulse"></i>
+                    <!-- Text updated to NextLevel Gaming Lounge -->
+                    <span class="text-2xl font-extrabold text-nl-accent tracking-wider">NextLevel Gaming Lounge</span>
+                </a>
+                <!-- Desktop Navigation Links -->
+                <nav class="navbar hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#services" class="hover:text-nl-accent transition duration-150">Services & Pricing</a>
+                    <a href="#promotions" class="hover:text-nl-accent transition duration-150">Events</a>
+                    <a href="#contact" class="hover:text-nl-accent transition duration-150">Find Us</a>
+                    <button onclick="window.location.href='#'" class="bg-nl-accent text-nl-dark px-3 py-1.5 rounded-full hover:bg-nl-secondary transition duration-150 shadow-md font-bold">
+                        Book Now
+                    </button>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-nl-text hover:text-nl-accent">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <a href="#services" class="hover:bg-nl-secondary/20">Services & Pricing</a>
+                <a href="#promotions" class="hover:bg-nl-secondary/20">Events</a>
+                <a href="#contact" class="hover:bg-nl-secondary/20">Find Us</a>
+                <button onclick="window.location.href='#'" class="bg-nl-accent text-nl-dark px-3 py-1.5 rounded-full hover:bg-nl-secondary transition duration-150 shadow-md font-bold mx-4 mt-2">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HOME & HERO SECTION -->
+        <section id="home" class="relative pt-20 pb-16 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h1 class="text-6xl sm:text-7xl font-extrabold leading-tight mb-4">
+                        <span class="block text-nl-text">LEVEL UP</span>
+                        <span class="block text-nl-accent">YOUR SOCIAL LIFE.</span>
+                    </h1>
+                    <p class="text-xl text-nl-text/80 mb-8 max-w-lg lg:max-w-none mx-auto">
+                        NextLevel is the ultimate gaming destination in **Downtown Toronto**. Experience 20 high-end PCs and the latest consoles in a safe, friendly, and energetic environment.
+                    </p>
+                    <a href="#services" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-nl-dark bg-nl-accent hover:bg-nl-secondary transition duration-300 transform hover:scale-105">
+                        <i data-lucide="gamepad" class="w-5 h-5 mr-2"></i>
+                        Start Gaming Today
+                    </a>
+                </div>
+                <!-- Image: LOUNGE INTERIOR SHOT (Image 2) -->
+                <div class="lg:w-1/2 w-full mt-10 lg:mt-0">
+                    <!-- IMAGE SOURCE: https://images.metrofamilymagazine.com/wp-content/uploads/2022/10/uco-gaming-arena.jpg -->
+                    <img src="https://images.metrofamilymagazine.com/wp-content/uploads/2022/10/uco-gaming-arena.jpg" alt="High-end Gaming Lounge Interior" class="rounded-xl shadow-2xl border-4 border-nl-accent/30 w-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SERVICES & PRICING SECTION -->
+        <section id="services" class="py-20 bg-nl-dark/50 border-t border-b border-nl-text/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-16 text-nl-accent">Choose Your Arena</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    
+                    <!-- Pricing Card 1: PC Gaming - UPDATED RATES -->
+                    <div class="nl-card bg-nl-dark p-8 rounded-xl shadow-2xl border border-nl-accent/30 text-left">
+                        <!-- Image: PC/SETUP (Image 1) -->
+                        <!-- IMAGE SOURCE: https://www.uniwaybc.ca/cdn/shop/articles/gaming_pc_component.png?v=1717913841 -->
+                        <img src="https://www.uniwaybc.ca/cdn/shop/articles/gaming_pc_component.png?v=1717913841" alt="PC Gaming Setup" class="w-full h-auto rounded-lg mb-4 object-cover">
+                        
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i data-lucide="monitor-dot" class="w-8 h-8 text-nl-accent"></i>
+                            <h3 class="text-2xl font-semibold text-nl-text">PC Gaming Stations (x20)</h3>
+                        </div>
+                        <p class="text-nl-text/70 mb-6">
+                            High-performance custom rigs with 144Hz monitors and pro-grade peripherals. The ultimate competitive experience.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Hourly Rate</span>
+                                <span class="text-xl font-bold text-nl-accent">$30.00</span>
+                            </div>
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Day Pass (8hr)</span>
+                                <span class="text-xl font-bold text-nl-accent">$180.00</span> <!-- Adjusted from $30*8=240, $180 implies a discount -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Card 2: Console Lounge - UPDATED RATES -->
+                    <div class="nl-card bg-nl-dark p-8 rounded-xl shadow-2xl border border-nl-accent/30 text-left">
+                        <!-- Image: COMFY CONSOLE LOUNGE (Image 3) -->
+                        <!-- IMAGE SOURCE: https://image.benq.com/is/image/benqco/Gamingroom_tk700sti-A?$ResponsivePreset$&wid=1468 -->
+                        <img src="https://image.benq.com/is/image/benqco/Gamingroom_tk700sti-A?$ResponsivePreset$&wid=1468" alt="Comfortable Console Lounge Area" class="w-full h-auto rounded-lg mb-4 object-cover">
+
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i data-lucide="gamepad-2" class="w-8 h-8 text-nl-accent"></i>
+                            <h3 class="text-2xl font-semibold text-nl-text">Console Lounge</h3>
+                        </div>
+                        <p class="text-nl-text/70 mb-6">
+                            Relaxed zone with comfortable couches, large screens, and all major consoles (PS5, Xbox Series X, Switch).
+                        </p>
+                        <div class="space-y-3">
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Hourly Rate</span>
+                                <span class="text-xl font-bold text-nl-accent">$25.00</span>
+                            </div>
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Group Rate (4+)</span>
+                                <span class="text-xl font-bold text-nl-accent">$60.00/hr</span> <!-- Adjusted based on new rate (implied discount) -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Card 3: Snack Bar & Merch - UPDATED RATES -->
+                    <div class="nl-card bg-nl-dark p-8 rounded-xl shadow-2xl border border-nl-accent/30 text-left">
+                        <!-- Image: SNACKS/DRINKS (Image 4) -->
+                        <!-- IMAGE SOURCE: https://blogto-production2-baselayer-display.blogto.com/uploads/2016/11/30/20161122-2048-Meltdown9.jpg -->
+                        <img src="https://blogto-production2-baselayer-display.blogto.com/uploads/2016/11/30/20161122-2048-Meltdown9.jpg" alt="Snack Bar Food and Drinks" class="w-full h-auto rounded-lg mb-4 object-cover">
+
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i data-lucide="martini" class="w-8 h-8 text-nl-accent"></i>
+                            <h3 class="text-2xl font-semibold text-nl-text">Snack Bar & Merch</h3>
+                        </div>
+                        <p class="text-nl-text/70 mb-6">
+                            Fuel your session with energy drinks, hot food, and snacks. Grab exclusive NextLevel merch and accessories.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Snack Combo Deal (Per Person)</span>
+                                <span class="text-xl font-bold text-nl-accent">$19.99</span>
+                            </div>
+                            <div class="bg-nl-secondary/20 p-3 rounded-lg flex justify-between items-center">
+                                <span class="font-medium">Group Combo (4+)</span>
+                                <span class="text-xl font-bold text-nl-accent">$59.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Promotional Image: TOURNAMENT BANNER (Image 5) -->
+                <div class="mt-16 relative">
+                    <!-- IMAGE SOURCE: https://i.pcmag.com/imagery/lineups/06dxdkd5h3MmSKAaMczRpbQ-1.fit_lim.size_1600x900.v1569492889.jpg -->
+                    <img src="https://i.pcmag.com/imagery/lineups/06dxdkd5h3MmSKAaMczRpbQ-1.fit_lim.size_1600x900.v1569492889.jpg" alt="Tournament promotion banner with text overlay" class="rounded-xl shadow-xl border-4 border-nl-accent/30 w-full object-cover">
+                    
+                    <!-- Text Overlay -->
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4 rounded-xl backdrop-brightness-50">
+                        <p class="text-xl sm:text-2xl font-extrabold text-nl-text tracking-widest mb-2 shadow-2xl">
+                            WIN CASH PRIZES EVERY SATURDAY
+                        </p>
+                        <p class="text-3xl sm:text-5xl font-black text-nl-accent border-b-4 border-nl-accent/80 pb-1 px-4 shadow-2xl">
+                            JOIN THE DISCORD
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PROMOTIONS & EVENTS SECTION -->
+        <section id="promotions" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-16 text-nl-accent">Current Quests & Special Offers</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-left">
+                    <!-- Event 1: Student Discount -->
+                    <div class="nl-card flex p-6 bg-nl-dark/70 rounded-xl shadow-lg border-l-4 border-nl-accent">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-nl-accent mt-1 flex-shrink-0"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold mb-2">STUDENT THURSDAYS: 20% OFF</h3>
+                            <p class="text-nl-text/80">Show a valid student ID every Thursday and get 20% off all hourly PC and Console gaming sessions. Perfect for after-school hangouts!</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2: Weekend Tournament - UPDATED ENTRY FEE -->
+                    <div class="nl-card flex p-6 bg-nl-dark/70 rounded-xl shadow-lg border-l-4 border-nl-accent">
+                        <i data-lucide="trophy" class="w-8 h-8 text-nl-accent mt-1 flex-shrink-0"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold mb-2">WEEKEND WARRIOR TOURNAMENTS</h3>
+                            <p class="text-nl-text/80">Every Saturday at 7 PM. Games rotate (Valorant, Fortnite, Minecraft, Rocket League and more)! **Entry is now $49.00**, with a guaranteed prize pool: $500 for first, $300 for second, and $100 for third.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 3: Birthday Parties -->
+                    <div class="nl-card flex p-6 bg-nl-dark/70 rounded-xl shadow-lg border-l-4 border-nl-accent">
+                        <i data-lucide="party-popper" class="w-8 h-8 text-nl-accent mt-1 flex-shrink-0"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold mb-2">PRIVATE PARTY BOOKINGS</h3>
+                            <p class="text-nl-text/80">Book our entire Console Lounge for birthdays, team builders, or private events. Starting at $100/hour for up to 10 guests.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 4: Happy Hour -->
+                    <div class="nl-card flex p-6 bg-nl-dark/70 rounded-xl shadow-lg border-l-4 border-nl-accent">
+                        <i data-lucide="clock" class="w-8 h-8 text-nl-accent mt-1 flex-shrink-0"></i>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold mb-2">EARLY BIRD HAPPY HOUR</h3>
+                            <p class="text-nl-text/80">Monday to Friday, 3 PM - 5 PM: Get 3 hours of game time for the price of 2! Kick off your evening after work or school.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. CONTACT & LOCATION SECTION -->
+        <section id="contact" class="py-20 bg-nl-dark/50 border-t border-nl-text/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold mb-12 text-center text-nl-accent">Find Your Next Game</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Location Details & Map -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-nl-text mb-6">Our Downtown Toronto HQ</h3>
+                        <!-- Location Details -->
+                        <div class="space-y-4 text-lg">
+                            <p class="flex items-center"><i data-lucide="map-pin" class="w-5 h-5 text-nl-accent mr-3"></i>
+                                <strong>Address:</strong>&nbsp;Dundas St. West at St. Patrick St. | Downtown Toronto, ON</p>
+                            <p class="flex items-center"><i data-lucide="clock" class="w-5 h-5 text-nl-accent mr-3"></i>
+                                <!-- Hours: Mon-Thurs: 2 PM - 10 PM | Fri-Sun: 3 PM - 12 AM -->
+                                <strong>Hours:</strong>&nbsp;Mon-Thurs: 2 PM - 10 PM | Fri-Sun: 3 PM - 12 AM</p>
+                            <p class="flex items-center"><i data-lucide="phone" class="w-5 h-5 text-nl-accent mr-3"></i>
+                                <strong>Phone:</strong>&nbsp;+1 416-555-NEXT</p>
+                            <p class="flex items-center"><i data-lucide="mail" class="w-5 h-5 text-nl-accent mr-3"></i>
+                                <strong>Email:</strong>&nbsp;info@nextlevelgaming.ca</p>
+                        </div>
+                        
+                        <!-- Map Image: GOOGLE MAP (Image 6) - UPDATED with Imgur link -->
+                        <div class="mt-8">
+                            <img src="https://i.imgur.com/ha7UYWO.jpeg" alt="Google map location screenshot" class="rounded-lg shadow-xl border-2 border-nl-text/20 w-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-nl-dark p-8 rounded-xl shadow-2xl border-2 border-nl-secondary/50">
+                        <h3 class="text-2xl font-semibold text-nl-accent mb-6">Send Us a Quick Message</h3>
+                        <form id="contactForm" onsubmit="return validateForm(event)">
+                            <div class="space-y-4">
+                                <input type="text" id="name" placeholder="Your Name" required
+                                       class="w-full p-3 bg-nl-dark/50 border border-nl-secondary rounded-lg focus:ring-nl-accent focus:border-nl-accent text-nl-text placeholder-nl-text/50">
+                                
+                                <input type="email" id="email" placeholder="Your Email" required
+                                       class="w-full p-3 bg-nl-dark/50 border border-nl-secondary rounded-lg focus:ring-nl-accent focus:border-nl-accent text-nl-text placeholder-nl-text/50">
+                                
+                                <textarea id="message" placeholder="What's your question or feedback?" rows="5" required
+                                          class="w-full p-3 bg-nl-dark/50 border border-nl-secondary rounded-lg focus:ring-nl-accent focus:border-nl-accent text-nl-text placeholder-nl-text/50"></textarea>
+                                
+                                <button type="submit" class="w-full bg-nl-accent text-nl-dark px-6 py-3 font-bold rounded-lg shadow-md hover:bg-nl-secondary transition duration-300">
+                                    Send Message
+                                </button>
+                            </div>
+                            <!-- Form message display -->
+                            <p id="form-message" class="mt-4 font-medium text-center hidden"></p>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="mt-16 pt-8 border-t border-nl-text/10 text-center">
+                    <h3 class="text-xl font-semibold mb-4">Follow the Community!</h3>
+                    <div class="flex justify-center space-x-8">
+                        <a href="[Placeholder: Discord URL]" target="_blank" class="text-nl-text hover:text-nl-accent transition duration-150">
+                            <i data-lucide="message-square" class="w-8 h-8"></i>
+                        </a>
+                        <a href="[Placeholder: Instagram URL]" target="_blank" class="text-nl-text hover:text-nl-accent transition duration-150">
+                            <i data-lucide="instagram" class="w-8 h-8"></i>
+                        </a>
+                        <a href="[Placeholder: X/Twitter URL]" target="_blank" class="text-nl-text hover:text-nl-accent transition duration-150">
+                            <i data-lucide="twitter" class="w-8 h-8"></i>
+                        </a>
+                        <a href="[Placeholder: Twitch URL]" target="_blank" class="text-nl-text hover:text-nl-accent transition duration-150">
+                            <i data-lucide="twitch" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-nl-dark border-t border-nl-secondary py-6">
+        <div class="text-center text-sm text-nl-text/50">
+            &copy; 2025 NextLevel Gaming Lounge. Level Up Your Social Life.
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT LOGIC (Included in the single file) -->
+    <script>
+        /**
+         * Client-side JavaScript for form validation, user feedback, and mobile menu toggle.
+         */
+
+        // Function to validate the contact form
+        function validateForm(event) {
+            // Prevent the default form submission which would reload the page
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('form-message');
+
+            formMessage.classList.add('hidden'); // Hide previous message
+
+            // 1. Check if all fields are filled
+            if (name === "" || email === "" || message === "") {
+                formMessage.textContent = "Error: Please fill in all required fields.";
+                formMessage.style.color = 'red';
+                formMessage.classList.remove('hidden');
+                return false;
+            }
+
+            // 2. Basic email format check
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                formMessage.textContent = "Error: Please enter a valid email address.";
+                formMessage.style.color = 'red';
+                formMessage.classList.remove('hidden');
+                return false;
+            }
+
+            // 3. Simulate success
+            formMessage.textContent = "Message sent! Thank you, " + name + ". We'll be in touch soon!";
+            formMessage.style.color = tailwind.config.theme.extend.colors['nl-accent'];
+            formMessage.classList.remove('hidden');
+
+            // Clear the form after a simulated success
+            document.getElementById('contactForm').reset();
+            
+            // In a real application, you would make an AJAX call to your server backend here
+            return false;
+        }
+
+        // Mobile menu toggle logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    // Toggles the display style (which is hidden/flex in the CSS)
+                    const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '';
+                    mobileMenu.style.display = isHidden ? 'flex' : 'none';
+                    // Update the icon for better UX
+                    menuButton.innerHTML = isHidden ? '<i data-lucide="x" class="w-6 h-6"></i>' : '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    lucide.createIcons(); // Re-render the new icon
+                });
+
+                // Close menu when a link is clicked
+                mobileMenu.querySelectorAll('a, button').forEach(item => {
+                    item.addEventListener('click', () => {
+                        mobileMenu.style.display = 'none';
+                        menuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                        lucide.createIcons();
+                    });
+                });
+            }
+        });
+
+        // Initialize Lucide icons after the DOM is loaded
+        window.onload = function() {
+            lucide.createIcons();
+        };
+
+    </script>
+</body>
+</html>
